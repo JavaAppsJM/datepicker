@@ -24,9 +24,22 @@ public class MainActivity extends AppCompatActivity {
         String month_string = Integer.toString(month+1);
         String day_string = Integer.toString(day);
         String year_string = Integer.toString(year);
-        String dateMessage = (month_string +
-                "/" + day_string + "/" + year_string);
+        String dateMessage = (day_string +
+                "/" + month_string + "/" + year_string);
 
         Toast.makeText(this, "Date: " + dateMessage, Toast.LENGTH_SHORT).show();
+    }
+
+    public void showTimePicker(View view) {
+        DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getSupportFragmentManager(), getString(R.string.timepicker));
+    }
+
+    public void processTimePickerResult(int hour, int minute){
+        String hour_string = Integer.toString(hour);
+        String minute_string = Integer.toString(minute);
+        String timeMessage = (hour_string + ":" + minute_string);
+
+        Toast.makeText(this, "Time: " + timeMessage, Toast.LENGTH_SHORT).show();
     }
 }
